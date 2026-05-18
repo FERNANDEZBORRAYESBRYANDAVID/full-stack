@@ -1,0 +1,216 @@
+/* ============================================================
+   AGENDA DE CONTACTOS — Estilos Globales
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary:     #2563eb;
+  --primary-dk:  #1d4ed8;
+  --success:     #16a34a;
+  --danger:      #dc2626;
+  --bg:          #f8fafc;
+  --surface:     #ffffff;
+  --border:      #e2e8f0;
+  --text:        #1e293b;
+  --text-muted:  #64748b;
+  --radius:      10px;
+  --shadow:      0 2px 12px rgba(0,0,0,.07);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* -------- NAVBAR -------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: .9rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow);
+}
+.nav-brand { display: flex; align-items: center; gap: .5rem; font-weight: 700; font-size: 1.1rem; }
+.nav-icon  { font-size: 1.4rem; }
+.nav-links { display: flex; align-items: center; gap: 1rem; }
+.nav-link  {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  padding: .4rem .8rem;
+  border-radius: 6px;
+  transition: all .2s;
+}
+.nav-link:hover, .nav-link.router-link-active {
+  color: var(--primary);
+  background: #eff6ff;
+}
+.btn-logout {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: .4rem .9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: .9rem;
+  transition: all .2s;
+}
+.btn-logout:hover { background: #fef2f2; color: var(--danger); border-color: var(--danger); }
+
+/* -------- CONTAINER -------- */
+.container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+/* -------- FORMULARIOS -------- */
+.form-group   { margin-bottom: 1.2rem; }
+.form-label   { display: block; font-size: .9rem; font-weight: 600; margin-bottom: .4rem; color: var(--text); }
+.form-input {
+  width: 100%;
+  padding: .7rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-size: .95rem;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--bg);
+  transition: border-color .2s;
+}
+.form-input:focus { outline: none; border-color: var(--primary); background: #fff; }
+textarea.form-input { resize: vertical; min-height: 90px; }
+
+/* -------- BOTONES -------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .7rem 1.4rem;
+  border: none;
+  border-radius: 7px;
+  font-size: .95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s;
+  text-decoration: none;
+}
+.btn-primary  { background: var(--primary);  color: #fff; }
+.btn-primary:hover  { background: var(--primary-dk); }
+.btn-success  { background: var(--success);  color: #fff; }
+.btn-danger   { background: var(--danger);   color: #fff; }
+.btn-outline  { background: transparent; border: 1px solid var(--border); color: var(--text-muted); }
+.btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+.btn-block    { width: 100%; justify-content: center; }
+.btn:disabled { opacity: .6; cursor: not-allowed; }
+
+/* -------- ALERTAS -------- */
+.alert {
+  padding: .8rem 1rem;
+  border-radius: 7px;
+  font-size: .9rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.alert-error   { background: #fef2f2; color: var(--danger); border: 1px solid #fecaca; }
+.alert-success { background: #f0fdf4; color: var(--success); border: 1px solid #bbf7d0; }
+
+/* -------- TÍTULOS -------- */
+.page-title  { font-size: 1.6rem; font-weight: 700; margin-bottom: 1.5rem; }
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* -------- GRID DE CONTACTOS -------- */
+.contactos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.contacto-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  transition: box-shadow .2s;
+}
+.contacto-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.1); }
+.contacto-card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+}
+.contacto-nombre  { font-weight: 700; font-size: 1rem; }
+.contacto-tel     { font-size: .9rem; color: var(--text-muted); }
+.contacto-actions { display: flex; gap: .5rem; margin-top: .4rem; }
+.btn-sm { padding: .35rem .8rem; font-size: .82rem; }
+
+/* -------- AVATAR -------- */
+.avatar-placeholder {
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  background: #eff6ff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+}
+
+/* -------- LOADING -------- */
+.loading { text-align: center; padding: 3rem; color: var(--text-muted); }
+
+/* -------- EMPTY STATE -------- */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+}
+.empty-state p { margin-bottom: 1rem; }
+
+/* -------- AUTH LAYOUT -------- */
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
+}
+.auth-card { width: 100%; max-width: 420px; }
+.auth-title { font-size: 1.8rem; font-weight: 800; text-align: center; margin-bottom: .3rem; }
+.auth-sub   { text-align: center; color: var(--text-muted); margin-bottom: 1.8rem; font-size: .95rem; }
+.auth-footer { text-align: center; margin-top: 1.2rem; font-size: .9rem; color: var(--text-muted); }
+.auth-footer a { color: var(--primary); text-decoration: none; font-weight: 600; }
+
+/* -------- BUSCADOR -------- */
+.search-input {
+  padding: .6rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-size: .9rem;
+  min-width: 220px;
+  background: var(--bg);
+}
+.search-input:focus { outline: none; border-color: var(--primary); }
+
+/* -------- FOTO PREVIEW -------- */
+.foto-preview { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: .5rem; border: 2px solid var(--border); }
