@@ -9,6 +9,5 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  // Cambia 'agenda-contactos' por el nombre exacto de tu repositorio en GitHub
-  base: '/agenda-contactos/'
+  base: '/full-stack/'
 })
